@@ -1,0 +1,40 @@
+package jCompiler;
+/* 		OBJECT-ORIENTED RECOGNIZER FOR SIMPLE EXPRESSIONS
+expr    -> term   (+ | -) expr | term
+term    -> factor (* | /) term | factor
+factor  -> int_lit | '(' expr ')'     
+*/
+
+class Code {
+	static String[] code = new String[100];
+	static int codeptr = 0;
+	
+	public static void gen(String s) {
+		code[codeptr] = s;
+		codeptr++;
+	}
+	
+	public static String intcode(int i) {
+		if (i > 127) return "sipush " + i;
+		if (i > 5) return "bipush " + i;
+		return "iconst_" + i;
+	}
+	
+	public static String opcode(char op) {
+		switch(op) {
+		case '+' : return "iadd";
+		case '-':  return "isub";
+		case '*':  return "imul"; 
+		case '/':  return "idiv";
+		default: return "";
+		}
+	}
+	
+	public static void output() {
+		for (int i=0; i<codeptr; i++)
+			System.out.println(code[i]);
+	}
+}
+
+
+

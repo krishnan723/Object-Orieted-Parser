@@ -1,0 +1,11 @@
+package jCompiler;
+
+
+public class Test {   
+  
+public static void main(String args[]) {   
+    System.out.println("Enter an expression, end with semi-colon.");
+    new Recognizer();  
+    System.out.println("done");   
+} 
+} 

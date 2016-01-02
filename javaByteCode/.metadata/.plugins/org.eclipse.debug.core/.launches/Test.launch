@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="edu.buffalo.cse.jive.preferences.common_filters">
+<listEntry value="antlr.*"/>
+<listEntry value="com.apple.*"/>
+<listEntry value="com.mysql.*"/>
+<listEntry value="com.sun.*"/>
+<listEntry value="java.*"/>
+<listEntry value="javax.*"/>
+<listEntry value="org.apache.*"/>
+<listEntry value="org.eclipse.*"/>
+<listEntry value="org.hibernate.*"/>
+<listEntry value="org.jcp.*"/>
+<listEntry value="org.junit.*"/>
+<listEntry value="org.postgresql.*"/>
+<listEntry value="org.w3c.*"/>
+<listEntry value="org.xml.*"/>
+<listEntry value="sun.*"/>
+<listEntry value="$Proxy*"/>
+<listEntry value="Buffer"/>
+<listEntry value="Lexer"/>
+</listAttribute>
+<booleanAttribute key="edu.buffalo.cse.jive.preferences.generateLocalEvents" value="true"/>
+<booleanAttribute key="edu.buffalo.cse.jive.preferences.generateLockEvents" value="false"/>
+<booleanAttribute key="edu.buffalo.cse.jive.preferences.manualStart" value="false"/>
+<setAttribute key="org.eclipse.debug.core.LAUNCH_MODES">
+<setEntry value="jive"/>
+</setAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/JComplier"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="jCompiler.Test"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="JComplier"/>
+</launchConfiguration>

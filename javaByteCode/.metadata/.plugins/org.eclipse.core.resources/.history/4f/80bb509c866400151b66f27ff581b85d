@@ -1,0 +1,68 @@
+package jCompiler;
+
+//TOPDOWN RECOGNIZER -- OBJECT-ORIENTED STYLE
+
+//expr -> term  | term ( + | -) expr  
+//term -> factor| factor (* | /) term  
+//factor -> int_lit  | ( expr )
+
+//No error checking performed by this program
+
+public class Recognizer {
+Expr e;
+public Recognizer() {
+	Lexer.lex();
+   e = new Expr();
+}
+}
+
+
+class Expr { // expr -> term (+ | -) expr | term
+Term t;
+char op;
+Expr e;
+public Expr() {
+	t = new Term();
+	if (Lexer.nextToken == Token.ADD_OP || Lexer.nextToken == Token.SUB_OP) {
+		op = Lexer.op;
+		Lexer.lex();
+		e = new Expr();
+		 
+	}
+}
+}
+
+class Term { // term -> factor (* | /) term | factor
+Factor f;
+char op;
+Term t;
+
+public Term() {
+	f = new Factor();
+	if (Lexer.nextToken == Token.MULT_OP || Lexer.nextToken == Token.DIV_OP) {
+		op = Lexer.op;
+		Lexer.lex();
+		t = new Term();
+	}
+}
+}
+
+class Factor { // factor -> int_lit | ( expr )
+Expr e;
+int i;
+public Factor() {
+	switch (Lexer.nextToken) {
+	case Token.NUM:
+		i = Lexer.intValue;
+		Lexer.lex();
+		break;
+	case Token.LEFT_PAREN:
+		Lexer.lex();
+		e = new Expr();
+		Lexer.lex();      // skip over ')'
+		break;
+	default:
+		break;
+	}
+}
+}

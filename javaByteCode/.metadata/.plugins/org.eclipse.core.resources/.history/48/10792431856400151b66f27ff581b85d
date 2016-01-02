@@ -1,0 +1,71 @@
+package jCompiler;
+
+class BST {
+	public static void main(String args[]) {
+		Tree tr;
+		tr = new Tree(100);
+		tr.insert(50);
+		tr.insert(20);
+		tr.insert(75);
+		tr.insert(25);
+		tr.insert(75);
+		tr.insert(90);	
+		tr.insert(125);
+		tr.insert(150);
+		
+	}
+}
+
+
+class Tree { // node of binary search tree
+
+	public Tree(int n) {
+		value = n;
+		left = null;
+		right = null;
+	}
+	
+	public void insert(int n) {
+		if (value == n)
+			return;
+		if (value < n)
+			if (right == null)
+				right = new Tree(n);
+			else
+				right.insert(n);
+		else if (left == null)
+			left = new Tree(n);
+		else
+			left.insert(n);
+	}
+
+	public int min() {
+		if (left != null)
+			return left.min();
+		else
+			return value;
+	}
+
+	public int max() {
+		if (right != null)
+			return right.max();
+		else
+			return value;
+	}
+
+	public void print() {
+		if (left != null)
+			left.print();
+		System.out.print(value + "  ");
+		if (right != null)
+			right.print();
+	}
+	
+	protected int value;
+	protected Tree left;
+	protected Tree right;
+}
+
+
+
+
